@@ -10,9 +10,8 @@ import { Container } from 'react-bootstrap';
 import { CardGroup } from 'react-bootstrap';
 import { ButtonGroup } from 'react-bootstrap';
 import { ButtonToolbar } from 'react-bootstrap';
-import Footer from './Footer';
 
-export default class SignIn extends Component {
+export default class Users extends Component {
 	state = {
 		users: [],
 		newUser: {
@@ -100,32 +99,9 @@ export default class SignIn extends Component {
 				>
 					{this.state.users.map((user) => {
 						return (
-							<div
-								className="row text-center"
-								style={{
-									marginLeft: '20px',
-									marginBottom: '20px',
-									marginTop: '30px'
-								}}
-							>
+							<div className="row text-center">
 								<CardGroup>
-									<Card
-										key={user._id}
-										className="text-center"
-										style={{
-											width: '16.8rem',
-											marginLeft: '30px',
-											marginRight: '30px',
-											backgroundColor: '#efe8e8'
-										}}
-									>
-										<Card.Img
-											className="text-center zoom"
-											style={{ height: '250px', width: '267px' }}
-											variant="top"
-											src={user.photoUrl}
-										/>
-
+									<Card key={user._id} className="text-center">
 										<Card.Body>
 											<Card.Title style={{ color: 'black' }}>{user.firstName}</Card.Title>
 											<Card.Title style={{ color: 'black' }}>{user.age}</Card.Title>
@@ -133,17 +109,7 @@ export default class SignIn extends Component {
 
 											<div key={user._id}>
 												<Link to={`/users/${user._id}`} key={user._id}>
-													<button
-														className="rockstar"
-														style={{
-															backgroundColor: 'white',
-															borderColor: 'black',
-															color: 'black',
-															marginRight: '10px'
-														}}
-													>
-														Interested
-													</button>
+													<button className="">Interested</button>
 												</Link>
 
 												<button
@@ -151,11 +117,6 @@ export default class SignIn extends Component {
 													onClick={(e) => this.deleteUser(e, user)}
 													type="button"
 													className="rockstar"
-													style={{
-														backgroundColor: 'white',
-														borderColor: 'black',
-														color: 'black'
-													}}
 												>
 													Not Interested
 												</button>

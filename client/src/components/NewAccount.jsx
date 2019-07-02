@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { render } from 'react-dom';
 import { Redirect, Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Media } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
-import { Form } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 export default class NewAccount extends Component {
 	state = {
@@ -86,148 +91,68 @@ export default class NewAccount extends Component {
 				})}
 				<br />
 				<br />
-				<button
-					style={{
-						backgroundColor: 'grey',
-						borderColor: 'black',
-						color: 'white',
-						paddingLeft: '60px',
-						paddingRight: '60px',
-						paddingTop: '10px',
-						paddingBottom: '10px'
-					}}
-					onClick={this.toggleEditForm}
-				>
-					Straight Women
-				</button>
-				{this.state.displayUserForm ? (
-					<div className="container">
-						<Card
-							className="container"
-							style={{
-								width: '36rem',
-								height: '41.4rem',
-								paddingTop: '35px',
-								marginTop: '20px',
-								marginBottom: '98px'
-							}}
-						>
-							<Form
-								className="text-center"
-								style={{ display: 'inline-block', paddingRight: '23px' }}
-								onSubmit={this.handleSignUp}
-							>
-								<Form.Row>
-									<Form.Group as={Col} controlId="formGridEmail">
-										<Form.Label style={{ fontSize: '16px ' }} htmlFor="firstName">
-											First Name
-										</Form.Label>
-										<Form.Control
-											className="text-center"
-											name="firstName"
-											onChange={this.handleChange}
-											value={this.state.newUser.firstName}
-											type="text"
-											placeholder="Enter First Name"
-										/>
-									</Form.Group>
 
-									<Form.Group as={Col} controlId="formGridPassword">
-										<Form.Label style={{ fontSize: '16px ' }} htmlFor="lastName">
-											Last Name
-										</Form.Label>
-										<Form.Control
-											className="text-center"
-											name="lastName"
-											onChange={this.handleChange}
-											value={this.state.newUser.lastName}
-											type="text"
-											placeholder="Enter Last Name"
-										/>
-									</Form.Group>
-								</Form.Row>
-
+				<div className="container">
+					<Card className="jumbotron">
+						<Form className="text-center" onSubmit={this.handleSignUp}>
+							<Form.Row>
 								<Form.Group as={Col} controlId="formGridEmail">
-									<Form.Label style={{ fontSize: '16px ' }} htmlFor="photoUrl">
-										Photo
-									</Form.Label>
+									<Form.Label htmlFor="firstName">First Name</Form.Label>
 									<Form.Control
 										className="text-center"
-										name="photoUrl"
+										name="firstName"
 										onChange={this.handleChange}
-										value={this.state.newUser.photoUrl}
+										value={this.state.newUser.firstName}
 										type="text"
-										placeholder="Enter a Photo of Yourself"
+										placeholder="Enter First Name"
 									/>
 								</Form.Group>
 
-								<Form.Group controlId="formGridAddress1">
-									<Form.Label style={{ fontSize: '16px ' }} htmlFor="age">
-										Age
-									</Form.Label>
+								<Form.Group as={Col} controlId="formGridPassword">
+									<Form.Label htmlFor="lastName">Last Name</Form.Label>
 									<Form.Control
 										className="text-center"
-										name="age"
-										type="text"
+										name="lastName"
 										onChange={this.handleChange}
-										value={this.state.newUser.age}
-										placeholder="Enter your Age"
+										value={this.state.newUser.lastName}
+										type="text"
+										placeholder="Enter Last Name"
 									/>
 								</Form.Group>
+							</Form.Row>
 
-								<Form.Group controlId="formGridAddress2">
-									<Form.Label style={{ fontSize: '16px ' }} htmlFor="location">
-										Location
-									</Form.Label>
-									<Form.Control
-										className="text-center"
-										name="location"
-										type="text"
-										onChange={this.handleChange}
-										value={this.state.newUser.location}
-										placeholder="Apartment, studio, or floor"
-									/>
-								</Form.Group>
+							<Form.Group controlId="formGridAddress1">
+								<Form.Label htmlFor="age">Age</Form.Label>
+								<Form.Control
+									className="text-center"
+									name="age"
+									type="text"
+									onChange={this.handleChange}
+									value={this.state.newUser.age}
+									placeholder="Enter your Age"
+								/>
+							</Form.Group>
 
-								<Form.Row>
-									<Form.Group as={Col} controlId="formGridCity">
-										<Form.Label style={{ fontSize: '16px ' }} htmlFor="bio">
-											Biography
-										</Form.Label>
-										<Form.Control
-											className="text-center"
-											name="bio"
-											type="text"
-											onChange={this.handleChange}
-											value={this.state.newUser.bio}
-											placeholder="Enter Facts about yourself"
-										/>
-									</Form.Group>
-								</Form.Row>
+							<Form.Group controlId="formGridAddress2">
+								<Form.Label htmlFor="location">Location</Form.Label>
+								<Form.Control
+									className="text-center"
+									name="location"
+									type="text"
+									onChange={this.handleChange}
+									value={this.state.newUser.location}
+									placeholder="Apartment, studio, or floor"
+								/>
+							</Form.Group>
 
-								<div style={{ marginLeft: '140px' }} className="text-center">
-									<Button
-										onclick={this.createUser}
-										className="text-center rockstar"
-										type="submit"
-										style={{
-											marginRight: '140px',
-											paddingLeft: '30px',
-											paddingRight: '30px',
-											marginTop: '29px',
-											marginBottom: '65px',
-											backgroundColor: 'grey',
-											borderColor: 'black',
-											color: 'black'
-										}}
-									>
-										Register
-									</Button>
-								</div>
-							</Form>
-						</Card>
-					</div>
-				) : null}
+							<div style={{ justifyContent: 'center' }} className="text-center">
+								<Button onclick={this.createUser} className="text-center" type="submit">
+									Register
+								</Button>
+							</div>
+						</Form>
+					</Card>
+				</div>
 			</div>
 		);
 	}

@@ -10,7 +10,6 @@ import { Container } from 'react-bootstrap';
 import { CardGroup } from 'react-bootstrap';
 import { ButtonGroup } from 'react-bootstrap';
 import { ButtonToolbar } from 'react-bootstrap';
-import Footer from './Footer';
 
 export default class Navbar extends Component {
 	render() {
@@ -34,28 +33,33 @@ export default class Navbar extends Component {
 					<div class="collapse navbar-collapse" id="navbarNav">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="#top">
+								<a class="nav-link" href="/">
 									HOME
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#about">
+								<a class="nav-link" href="/plans/">
 									SHOP PLANS
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#services">
+								<a class="nav-link" href="/services/">
 									DOCTORS & LOCATIONS
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#team">
+								<a class="nav-link" href="/users/:userId/">
 									MEMBER ACCOUNT
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#price">
+								<a class="nav-link" href="/contact/">
 									CONTACT
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/newaccount/">
+									SIGN IN
 								</a>
 							</li>
 						</ul>
