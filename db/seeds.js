@@ -18,7 +18,6 @@ const jim = new User({
 	age: 19,
 	location: 'Morrow, Georgia',
 	medicines: [ adderall ]
-
 });
 
 

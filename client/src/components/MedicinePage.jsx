@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
-import { Jumbotron } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import { CardGroup } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 
@@ -112,24 +110,24 @@ export default class MedicinePage extends Component {
 		return (
 			<div className="text-center">
 				<h3 style={{ marginTop: '30px' }}>PRESCRIPTIONS</h3>
-				<button onClick={this.toggleMedicineForm}>Your Prescription Lists</button>
+			
 				<div className="">
 					{this.state.medicines.map((medicine) => {
 						return (
 							<div>
-								{this.state.displayMedicineForm ? (
-									<Card className="text-center">
+							
+									<div className="text-center">
 										<p>Name: {medicine.name}</p>
 										<p>Dosage: {medicine.dosage}</p>
 										<p>Refill: {medicine.refill}</p>
 
 										<Container style={{ textAlign: 'center' }} className="text-center">
-											<Link
+											{/* <Link
 												to={`/users/${this.state.userId}/medicines/${medicine._id}`}
 												key={medicine._id}
-											>
-												<button>Edit Prescription</button>
-											</Link>
+											> */}
+												<button>Update Prescription</button>
+											{/* </Link> */}
 											<button
 												key={medicine._id}
 												onClick={(e) => this.deleteMedicine(e, medicine)}
@@ -137,8 +135,8 @@ export default class MedicinePage extends Component {
 												Delete Prescription
 											</button>
 										</Container>
-									</Card>
-								) : null}
+									</div>
+							
 							</div>
 						);
 					})}

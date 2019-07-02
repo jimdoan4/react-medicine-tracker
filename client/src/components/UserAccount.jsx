@@ -4,7 +4,7 @@ import MedicinePage from './MedicinePage';
 import { Container } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
-import { Card } from 'react-bootstrap';
+
 
 export default class UserAccount extends Component {
 	state = {
@@ -14,7 +14,7 @@ export default class UserAccount extends Component {
 	render() {
 		return (
 			<Container className="text-center">
-				<Row style={{ display: 'flex' }}>
+				<Row>
 					<Col>
 						<UserPage userId={this.state.userId} />
 					</Col>

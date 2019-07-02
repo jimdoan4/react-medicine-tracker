@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
-import { Jumbotron } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
@@ -80,81 +80,75 @@ export default class UserPage extends Component {
 		return (
 			<div>
 				<div>
-					<Card className="">
-						<Card>
-							<Card.Title>{this.state.user.firstName}</Card.Title>
-							<Card.Title>{this.state.user.lastName}</Card.Title>
-							<Card.Title>{this.state.user.age}</Card.Title>
-							<Card.Title>{this.state.user.location}</Card.Title>
-
-							<Container>
-								<button className="" onClick={this.toggleUserForm}>
-									Edit Account
-								</button>
-
-								<button className="" onClick={this.deleteUser}>
-									Delete Account
-								</button>
-							</Container>
-						</Card>
-					</Card>
+				
+					<h3 style={{ marginTop: '30px' }}>YOUR ACCOUNT</h3>
 				</div>
 
-				{this.state.displayUserForm ? (
-					<form onSubmit={this.updateUser} className="col text-center">
-						<div className="col text-center">
-							<div className="col s12 m6 text-center">
-								<label htmlFor="firstName">First Name </label>
-								<p />
-								<input
-									className="text-center"
-									id="firstName"
-									type="text"
-									name="firstName"
-									onChange={this.handleChange}
-									value={this.state.user.firstName}
-								/>
-							</div>
-							<div className="col s12 m6 text-center">
-								<label htmlFor="lastName">Last Name </label>
-								<input
-									className="text-center"
-									id="lastName"
-									type="text"
-									name="lastName"
-									onChange={this.handleChange}
-									value={this.state.user.lastName}
-								/>
-							</div>
-							<div className="col s12 m6 text-center">
-								<label htmlFor="age">Age </label>
-								<input
+					<Form className="text-center" onSubmit={this.updateUser}>
+							<Form.Row>
+								<Form.Group as={Col} controlId="formGridEmail">
+									<Form.Label htmlFor="firstName">First Name</Form.Label>
+									<Form.Control
+										className="text-center"
+										id="firstName"
+										name="firstName"
+										onChange={this.handleChange}
+										value={this.state.user.firstName}
+										type="text"
+										placeholder="Enter First Name"
+									/>
+								</Form.Group>
+
+								<Form.Group as={Col} controlId="formGridPassword">
+									<Form.Label htmlFor="lastName">Last Name</Form.Label>
+									<Form.Control
+										className="text-center"
+										id="lasttName"
+										name="lastName"
+										onChange={this.handleChange}
+										value={this.state.user.lastName}
+										type="text"
+										placeholder="Enter Last Name"
+									/>
+								</Form.Group>
+							</Form.Row>
+
+							<Form.Group controlId="formGridAddress1">
+								<Form.Label htmlFor="age">Age</Form.Label>
+								<Form.Control
 									className="text-center"
 									id="age"
-									type="number"
 									name="age"
+									type="text"
 									onChange={this.handleChange}
 									value={this.state.user.age}
+									placeholder="Enter your Age"
 								/>
-							</div>
+							</Form.Group>
 
-							<div className="col s12 m6 text-center">
-								<label htmlFor="location">Location </label>
-								<input
+							<Form.Group controlId="formGridAddress2">
+								<Form.Label htmlFor="location">Location</Form.Label>
+								<Form.Control
 									className="text-center"
 									id="location"
-									type="text"
 									name="location"
+									type="text"
 									onChange={this.handleChange}
 									value={this.state.user.location}
+									placeholder="Apartment, studio, or floor"
 								/>
+							</Form.Group>
+
+							<div style={{ justifyContent: 'center' }} className="text-center">
+								<Button className="text-center" type="submit">
+									Update Account
+								</Button>
+									<Button className="" onClick={this.deleteUser}>
+									Delete Account
+								</Button>
 							</div>
-						</div>
-						<div className="text-center">
-							<button className="text-center ">Submit</button>
-						</div>
-					</form>
-				) : null}
+						</Form>
+			
 			</div>
 		);
 	}

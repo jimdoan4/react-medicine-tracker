@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { render } from 'react-dom';
 import { Redirect, Link } from 'react-router-dom';
-import { Media } from 'react-bootstrap';
-import { Image } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
@@ -80,17 +78,13 @@ export default class NewAccount extends Component {
 	};
 
 	render() {
-		if (this.state.redirectToUser) {
-			return <Redirect to={`/users/:userId`} />;
-		}
+		// if (this.state.redirectToUser) {
+		// 	return <Redirect to={`/users/:userId`} />;
+		// }
 
 		return (
 			<div>
-				{this.state.users.map((user) => {
-					return <div />;
-				})}
-				<br />
-				<br />
+
 
 				<div className="container">
 					<Card className="jumbotron">
@@ -154,6 +148,7 @@ export default class NewAccount extends Component {
 					</Card>
 				</div>
 			</div>
+            
 		);
 	}
 }
