@@ -14,8 +14,6 @@ const UserSchema = new Schema({
 	lastName: String,
 	age: Number,
 	location: String,
-	photoUrl: String,
-	bio: String,
 	medicines: [ MedicineSchema ]
 
 });

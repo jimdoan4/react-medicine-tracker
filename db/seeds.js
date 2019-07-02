@@ -15,10 +15,8 @@ const adderall = new Medicine({
 const jim = new User({
 	firstName: 'Pam',
 	lastName: 'Anderson',
-	photoUrl: 'https://photo.venus.com/im/17078926.jpg?preset=product',
 	age: 19,
 	location: 'Morrow, Georgia',
-	bio: 'I just graduated from GA Tech am ready to start dating again. I love cats and coding Java on a daily basis',
 	medicines: [ medicine ],
 
 });

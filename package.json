@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "postinstall": "cd client && npm i && npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jimdoan4/react-medicine-tracker.git"
+  },
+  "engines": {
+    "node": "10.15.0"
   },
   "author": "",
   "license": "ISC",
